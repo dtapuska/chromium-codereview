@@ -145,9 +145,7 @@
 
                 // Simulate the user entering the text. This makes undo work properly instead of using
                 // data binding which is like a big "replace" action.
-                var inputEvent = document.createEvent("TextEvent");
-                inputEvent.initTextEvent("textInput", true, true, window, value, 0, "en-US");
-                input.dispatchEvent(inputEvent);
+                document.execCommand("insertText", false, value);
 
                 // Put the caret back at the end of the new input. This also makes sure the input scrolls
                 // to reveal the new text.
